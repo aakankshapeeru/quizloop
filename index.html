@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QuizLoop — Adaptive CS Study Quiz</title>
+    <meta
+      name="description"
+      content="QuizLoop is a short adaptive study quiz for computer science students covering Python, data structures, and machine learning."
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <p class="brand">QuizLoop</p>
+      <h1>Study a little, loop back smarter.</h1>
+      <p class="lede">
+        Pick a topic, answer three questions, and get a review plan based on what you missed.
+      </p>
+    </header>
+
+    <main id="main">
+      <section id="topic-view" aria-labelledby="topic-heading">
+        <h2 id="topic-heading">Choose a topic</h2>
+        <div class="topic-grid" role="group" aria-label="Quiz topics">
+          <button type="button" class="topic-card" data-topic="Python">
+            <span class="topic-name">Python</span>
+            <span class="topic-detail">Syntax, data types, and core language habits</span>
+          </button>
+          <button type="button" class="topic-card" data-topic="Data Structures">
+            <span class="topic-name">Data Structures</span>
+            <span class="topic-detail">Stacks, queues, trees, and complexity</span>
+          </button>
+          <button type="button" class="topic-card" data-topic="Machine Learning">
+            <span class="topic-name">Machine Learning</span>
+            <span class="topic-detail">Models, evaluation, and common pitfalls</span>
+          </button>
+        </div>
+
+        <section class="history-panel" aria-labelledby="home-history-heading">
+          <h2 id="home-history-heading">Past scores</h2>
+          <ul id="home-history" class="history-list"></ul>
+        </section>
+      </section>
+
+      <section id="quiz-view" hidden aria-labelledby="question-text">
+        <p id="quiz-topic" class="eyebrow"></p>
+        <div class="progress-block">
+          <p id="progress-label" class="progress-label">Question 1 of 3</p>
+          <div
+            id="progress"
+            class="progress-track"
+            role="progressbar"
+            aria-valuemin="1"
+            aria-valuemax="3"
+            aria-valuenow="1"
+            aria-labelledby="progress-label"
+          >
+            <div id="progress-fill" class="progress-fill"></div>
+          </div>
+        </div>
+        <h2 id="question-text"></h2>
+        <div id="options" class="options" role="group" aria-labelledby="question-text"></div>
+        <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+        <div class="actions">
+          <button type="button" id="next-btn" class="primary" hidden>Next question</button>
+          <button type="button" id="quit-btn" class="ghost">Back to topics</button>
+        </div>
+      </section>
+
+      <section id="results-view" hidden aria-labelledby="results-heading">
+        <p id="results-topic" class="eyebrow"></p>
+        <h2 id="results-heading">Your score</h2>
+        <p id="score-text" class="score"></p>
+        <p id="recommendation" class="recommendation"></p>
+        <h3 id="missed-heading">Concepts to review</h3>
+        <ul id="missed-list" aria-labelledby="missed-heading"></ul>
+        <div class="actions">
+          <button type="button" id="retry-btn" class="primary">Retry this topic</button>
+          <button type="button" id="home-btn" class="ghost">Choose another topic</button>
+        </div>
+        <section class="history-panel" aria-labelledby="results-history-heading">
+          <h3 id="results-history-heading">Past scores</h3>
+          <ul id="results-history" class="history-list"></ul>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
